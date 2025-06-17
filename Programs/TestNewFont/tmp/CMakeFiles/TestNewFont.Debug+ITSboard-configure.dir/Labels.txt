@@ -1,0 +1,10 @@
+# Target labels
+ TestNewFont.Debug+ITSboard
+# Source files and their labels
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-configure
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-configure.rule
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-configure.rule
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-patch.rule
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-update.rule
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-download.rule
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-mkdir.rule

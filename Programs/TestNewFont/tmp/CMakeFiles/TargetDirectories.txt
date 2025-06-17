@@ -1,0 +1,6 @@
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard.dir
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-build.dir
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-configure.dir
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-database.dir
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/edit_cache.dir
+D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/rebuild_cache.dir

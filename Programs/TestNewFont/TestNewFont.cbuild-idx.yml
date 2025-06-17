@@ -1,0 +1,18 @@
+build-idx:
+  generated-by: csolution version 2.6.0
+  cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
+  csolution: TestNewFont.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: TestNewFont.cproject.yml
+  cbuilds:
+    - cbuild: TestNewFont.Debug+ITSboard.cbuild.yml
+      project: TestNewFont
+      configuration: .Debug+ITSboard
+      messages:
+        warnings:
+          - TestNewFont.csolution.yml:15:7 - key 'target-set' was not recognized
+        info:
+          - TestNewFont.cbuild-set.yml - file is already up-to-date
+          - TestNewFont.cbuild-pack.yml - file is already up-to-date
+          - TestNewFont.Debug+ITSboard.cbuild.yml - file is already up-to-date

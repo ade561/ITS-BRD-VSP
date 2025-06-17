@@ -21,127 +21,44 @@
 #include "led.h"
 #include "lwip_interface.h"
 
-
+#include "tcp_server.h"
+#include "output.h"
+#include "input.h"
+#include "udp_client.h"
 
 extern void initITSboard(void);
+extern void initLCDTouch(void);
 
-/* Definitionen */
-#define TASK_COUNT 3
-/* Enumeration für den Zustand der Statemaschine */
-typedef enum { STATE_ETHERNET_FRAME_PULL, STATE_TASK1, STATE_TASK2, STATE_IDLE } State_t;
-
-/* Struktur für eine Task */
-typedef struct {
-  void (*taskFunction)(void); // Funktionspointer zur Task
-  uint32_t nextExecutionTime; // Zeitpunkt für die nächste Ausführung
-  uint32_t offset;            // Offset für die nächste Ausführung
-  bool isEnabled;             // Aktivierungsflag
-} Task_t;
-
-/* Funktionsdeklarationen */
-void TASK_ETHERNET_FRAME_PULL(void);
-void Task1(void);
-void Task2(void);
-void Scheduler(void);
-void StateMachine(void);
-
-/* Globale Variablen */
-State_t currentState = STATE_IDLE;
-uint32_t currentTime = 0; // Simulierte Zeitvariable
-Task_t taskList[TASK_COUNT] = {
-    {TASK_ETHERNET_FRAME_PULL, 0, 10, true}, 
-    {Task1, 0, 100, true}, 
-    {Task2, 0, 200, true}
-
-};
-
+/**
+  * @brief  Main program
+  * @param  None
+  * @retval None
+  */
 int main(void) {
-  initITSboard(); // Initialisierung des ITS Boards
+    initITSboard();
+    GUI_init(DEFAULT_BRIGHTNESS);
+    TP_Init(false);
+    if (!checkVersionFlashFonts()) Error_Handler();
 
-  GUI_init(DEFAULT_BRIGHTNESS); // Initialisierung des LCD Boards mit Touch
-  TP_Init(false);               // Initialisierung des LCD Boards mit Touch
+    lcdPrintlnS("UDP-Client");
 
-  // Begruessungstext
-  lcdPrintlnS("LWIP-project");
+    init_lwip_stack();
+    netif_config();
+    udp_client_init();
 
-  // initialisiere den Stack 
-  init_lwip_stack();
 
-  // Setup Interface
-  netif_config();
-  
-  // Test in Endlosschleife
-  while (1) {
-    Scheduler();    // Aufruf des Schedulers in der Endlosschleife
-    StateMachine(); // Aufruf der Statemaschine
-  }
+
+int button = 0;
+	while(1){
+		// 1: Snapshot of all Sensors and Actuators
+		check_input();
+		button  = isButtonPressed();
+		//Heartbeat
+		
+		// 2: Update the Values + do the logic
+		processButtonInput(button);
+
+		// 3: Output
+		
+	}
 }
-
-/* StateMachine-Funktion */
-void StateMachine(void) {
-  switch (currentState) {
-  case STATE_ETHERNET_FRAME_PULL:
-    currentState = STATE_IDLE;
-    break;
-  case STATE_TASK1:
-    currentState = STATE_IDLE;
-    break;
-  case STATE_TASK2:
-    currentState = STATE_IDLE;
-    break;
-  case STATE_IDLE:
-    // Im IDLE-Zustand keine spezifische Aktion
-    break;
-  default:
-    // Fehlerbehandlung für unbekannte Zustände
-    currentState = STATE_IDLE;
-    break;
-  }
-}
-
-/* Scheduler-Funktion */
-void Scheduler(void) {
-  for (uint8_t i = 0; i < TASK_COUNT; i++) {
-    currentTime = HAL_GetTick(); // Simulierte Zeit fortschreiben
-    if (taskList[i].isEnabled && currentTime >= taskList[i].nextExecutionTime) {
-      taskList[i].taskFunction();
-      taskList[i].nextExecutionTime = currentTime + taskList[i].offset;
-    }
-  }
-}
-
-/* Task ETHERNET_FRAME_PULL - Beispielhafte Implementierung */
-void TASK_ETHERNET_FRAME_PULL(void) {
-  // Task 0 Funktionalität
-  // Beispiel: LED toggeln
-  // Kommentar: Diese Task toggelt die LED0
-  toggleGPIO(&led_pins[0]);
-  check_input();
-  currentState = STATE_ETHERNET_FRAME_PULL;
-}
-
-/* Task 1 - Beispielhafte Implementierung */
-void Task1(void) {
-  // Task 1 Funktionalität
-  // Beispiel: LED toggeln
-  // Kommentar: Diese Task toggelt die LED1
-  toggleGPIO(&led_pins[1]);
-  currentState = STATE_TASK1;
-}
-
-/* Task 2 - Beispielhafte Implementierung */
-void Task2(void) {
-  // Task 2 Funktionalität
-  // Beispiel: LED toggeln
-  // Kommentar: Diese Task toggelt die LED2
-  toggleGPIO(&led_pins[2]);
-  currentState = STATE_TASK2;
-}
-
-/* Erweiterungshinweis:
- * Um die Statemaschine zu erweitern, können neue Tasks
- * in die taskList hinzugefügt und entsprechende
- * Funktionen definiert werden.
- */
-
-// EOF

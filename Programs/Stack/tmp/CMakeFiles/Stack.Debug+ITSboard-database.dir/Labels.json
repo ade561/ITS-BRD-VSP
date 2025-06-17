@@ -1,0 +1,37 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-database.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Stack.Debug+ITSboard"
+		],
+		"name" : "Stack.Debug+ITSboard-database"
+	}
+}

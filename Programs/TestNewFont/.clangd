@@ -1,0 +1,31 @@
+CompileFlags:
+  CompilationDatabase: >-
+    d:\KeilProjects\ITS-BRD\ITS-BRD-VSC\Programs\TestNewFont\out\TestNewFont\ITSboard\Debug
+  Add:
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/Inc'
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../stm32cubef4/Drivers/CMSIS/Include
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../stm32cubef4/Utilities/Fonts
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../DisplayWaveshare/Inc
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../ITS_BRD_LIB/Utilities/AddFonts
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../lwip/src/include
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/RTE/_Debug_ITSboard
+    - >-
+      -IC:/Users/dariu/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - >-
+      -IC:/Users/dariu/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/../../ITS_BRD_LIB/Inc

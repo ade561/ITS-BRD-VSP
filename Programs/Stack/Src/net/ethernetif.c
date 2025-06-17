@@ -134,7 +134,7 @@ volatile int packageAvailableBinSem = 1;
 /*******************************************************************************
                        Ethernet MSP Routines
 *******************************************************************************/
-/**
+/** 
  * @brief  Initializes the ETH MSP.
  * @param  heth: ETH handle
  * @retval None
@@ -190,6 +190,8 @@ void HAL_ETH_MspInit(ETH_HandleTypeDef *heth) {
   /* Enable ETHERNET clock  */
   __HAL_RCC_ETH_CLK_ENABLE();
 }
+
+
 
 /*******************************************************************************
                        LL Driver Interface ( LwIP stack --> ETH)

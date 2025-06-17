@@ -1,0 +1,24 @@
+# ninja log v6
+8	56	7718887962260406	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir	7235101bf4b66a56
+213	3042	7718887992133034	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure	603581ce74d8e3ca
+8	56	7718887962260406	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir	7235101bf4b66a56
+101	146	7718887963154536	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update	d201e21a9d57532f
+101	146	7718887963154536	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update	d201e21a9d57532f
+56	101	7718887962711689	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download	dbe939ddfca06dae
+56	101	7718887962711689	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download	dbe939ddfca06dae
+170	213	7718887963841217	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch	7582b3ab68a27bf4
+170	213	7718887963841217	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch	7582b3ab68a27bf4
+213	3042	7718887992133034	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure	603581ce74d8e3ca
+3043	3129	7718887992173025	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-database	9b496a205f1df90c
+3043	3129	7718887992173025	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-database	9b496a205f1df90c
+17	2404	7718888086466664	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-build	43be99afe2f8c239
+17	2404	7718888086466664	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/out/Stack/ITSboard/Debug/Stack.axf	43be99afe2f8c239
+17	2404	7718888086466664	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-build	43be99afe2f8c239
+2404	2431	7718888110328213	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-install	e6df5decd4723e7d
+2404	2431	7718888110328213	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-install	e6df5decd4723e7d
+2431	2474	7718888110989204	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-test	467325080a3bea84
+2431	2474	7718888110989204	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-test	467325080a3bea84
+2474	2530	7718888111557817	CMakeFiles/Stack.Debug+ITSboard-complete	564914fcd1924f4d
+2474	2530	7718888111557817	Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-done	564914fcd1924f4d
+2474	2530	7718888111557817	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-complete	564914fcd1924f4d
+2474	2530	7718888111557817	D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-done	564914fcd1924f4d

@@ -11,7 +11,7 @@
 // 192.168.33.99
 #define IP_ADDR0 (uint8_t)192
 #define IP_ADDR1 (uint8_t)168
-#define IP_ADDR2 (uint8_t)33
+#define IP_ADDR2 (uint8_t)178
 #define IP_ADDR3 (uint8_t)99
 
 /*NETMASK*/
@@ -25,7 +25,7 @@
 // 192.168.33.1
 #define GW_ADDR0 (uint8_t)192
 #define GW_ADDR1 (uint8_t)168
-#define GW_ADDR2 (uint8_t)33
+#define GW_ADDR2 (uint8_t)178
 #define GW_ADDR3 (uint8_t)1
 
 extern ETH_HandleTypeDef EthHandle;
@@ -72,8 +72,8 @@ void netif_config() {
   }
 
   // Ethernet prio should in our project higer as the SPI I
-  HAL_NVIC_SetPriority(ETH_IRQn, 5, 0);
-  HAL_NVIC_SetPriority(SPI1_IRQn, 11, 0);
+  HAL_NVIC_SetPriority(ETH_IRQn, 11, 0);
+  HAL_NVIC_SetPriority(SPI1_IRQn, 5, 0);
 }
 
 void check_input() {

@@ -1,0 +1,113 @@
+#include <string.h>
+#include "lwip/udp.h"
+#include "lcd.h"
+#include "lwip_interface.h"
+#include "LCD_GUI.h"
+
+#define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
+#define UDP_SERVER_PORT 8080            // Port des Zielservers
+#define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
+
+static struct udp_pcb *udp_client_pcb = NULL;
+static ip_addr_t server_ip;
+
+/* Nachricht an den Server */
+static const char udp_msg[] = "Hello from ITS-Board UDP Client!";
+
+/* Empfangs-Callback */
+static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
+                                     const ip_addr_t *addr, u16_t port) {
+    if (p != NULL) {
+        char buffer[128];
+        memcpy(buffer, p->payload, p->len > 127 ? 127 : p->len);
+        buffer[p->len > 127 ? 127 : p->len] = '\0';
+
+        lcdPrintS("UDP Antwort: ");
+        lcdPrintlnS(buffer);
+
+        pbuf_free(p);
+    }
+}
+
+void udp_client_init(void) {
+		char ipbuf[16];  // Maximal formatierte IPv4-Adresse ist "255.255.255.255\0" = 16 Zeichen
+    err_t err;
+
+    // Neues UDP PCB erzeugen
+    udp_client_pcb = udp_new();
+    if (udp_client_pcb == NULL) {
+        lcdPrintlnS("UDP-Client PCB Fehler");
+        return;
+    }
+
+    // Lokalen Port binden
+		err = udp_bind(udp_client_pcb, &its_brd_netif.ip_addr, UDP_LOCAL_PORT);
+    if (err != ERR_OK) {
+        lcdPrintlnS("UDP-Client Bind Fehler");
+        udp_remove(udp_client_pcb);
+        return;
+    }
+
+
+		// IP-Adresse in einen string umwandeln
+		ipaddr_ntoa_r(&its_brd_netif.ip_addr, ipbuf, sizeof(ipbuf));
+		GUI_clear(WHITE);
+		// Auf dem Display anzeigen
+		lcdPrintS("Local IP:");
+		lcdPrintlnS(ipbuf);
+
+}
+
+
+void selectServer(int serverNr) {
+
+    err_t err;
+    char ip_str[16];         // genügend Platz für "255.255.255.255\0"
+    ip_addr_t server_ip;
+
+    // Nur gültige Oktett-Werte erlauben
+    if (serverNr < 1 || serverNr > 253) {
+        lcdPrintlnS("Ungueltige Servernummer");
+        return;
+    }
+
+		// 1. IP-Adresse korrekt zusammensetzen
+		snprintf(ip_str, sizeof(ip_str), "%s%d", UDP_SERVER_IP, serverNr);
+		lcdPrintlnS(ip_str);
+
+		// 2. Nun IP-Konvertierung auf ip_str:
+		if (!ipaddr_aton(ip_str, &server_ip)) {
+			lcdPrintlnS("Ungueltige IP");
+			return;
+		}
+
+		// 3. Debug-Ausgabe:
+		char serverbuf[16];
+		ipaddr_ntoa_r(&server_ip, serverbuf, sizeof(serverbuf));
+		lcdPrintS("Sending to:");
+		lcdPrintlnS(serverbuf);
+
+		char localbuf[16];
+		ipaddr_ntoa_r(&its_brd_netif.ip_addr, localbuf, sizeof(localbuf));
+		lcdPrintS("Local IP:");
+		lcdPrintlnS(localbuf);
+
+
+		struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, strlen(udp_msg), PBUF_RAM);
+    if (p == NULL) {
+        lcdPrintlnS("UDP-Client Pufferfehler");
+        return;
+    }
+    memcpy(p->payload, udp_msg, strlen(udp_msg));
+
+    // Nachricht senden
+		err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
+    if (err == ERR_OK) {
+        lcdPrintlnS("UDP-Client Nachricht gesendet");
+    } else {
+        lcdPrintlnS("UDP-Client Sendefehler");
+    }
+
+    // Puffer freigeben
+    pbuf_free(p);
+}

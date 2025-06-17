@@ -1,0 +1,37 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-build"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/CMakeFiles/TestNewFont.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-update.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "D:/KeilProjects/ITS-BRD/ITS-BRD-VSC/Programs/TestNewFont/tmp/TestNewFont.Debug+ITSboard/src/TestNewFont.Debug+ITSboard-stamp/TestNewFont.Debug+ITSboard-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"TestNewFont.Debug+ITSboard"
+		],
+		"name" : "TestNewFont.Debug+ITSboard-build"
+	}
+}
