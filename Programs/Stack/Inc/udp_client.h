@@ -13,6 +13,7 @@ extern "C" {
  */
 void udp_client_init(void);
 void selectServer(int serverNr);
+void sendMsg();
 
 #ifdef __cplusplus
 }

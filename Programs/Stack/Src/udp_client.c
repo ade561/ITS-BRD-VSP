@@ -1,8 +1,11 @@
+#include <stdlib.h>
 #include <string.h>
+#include "err.h"
 #include "lwip/udp.h"
 #include "lcd.h"
 #include "lwip_interface.h"
 #include "LCD_GUI.h"
+#include "err.h"
 
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
@@ -12,7 +15,7 @@ static struct udp_pcb *udp_client_pcb = NULL;
 static ip_addr_t server_ip;
 
 /* Nachricht an den Server */
-static const char udp_msg[] = "Hello from ITS-Board UDP Client!";
+static const char udp_msg[] = "SIKIM";
 
 /* Empfangs-Callback */
 static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
@@ -49,10 +52,10 @@ void udp_client_init(void) {
     }
 
 
-		// IP-Adresse in einen string umwandeln
+		// convert IP address to String
 		ipaddr_ntoa_r(&its_brd_netif.ip_addr, ipbuf, sizeof(ipbuf));
 		GUI_clear(WHITE);
-		// Auf dem Display anzeigen
+		// show on display
 		lcdPrintS("Local IP:");
 		lcdPrintlnS(ipbuf);
 
@@ -60,10 +63,8 @@ void udp_client_init(void) {
 
 
 void selectServer(int serverNr) {
-
     err_t err;
-    char ip_str[16];         // genügend Platz für "255.255.255.255\0"
-    ip_addr_t server_ip;
+    char ip_str[16];         
 
     // Nur gültige Oktett-Werte erlauben
     if (serverNr < 1 || serverNr > 253) {
@@ -84,16 +85,15 @@ void selectServer(int serverNr) {
 		// 3. Debug-Ausgabe:
 		char serverbuf[16];
 		ipaddr_ntoa_r(&server_ip, serverbuf, sizeof(serverbuf));
-		lcdPrintS("Sending to:");
+		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
-
-		char localbuf[16];
-		ipaddr_ntoa_r(&its_brd_netif.ip_addr, localbuf, sizeof(localbuf));
-		lcdPrintS("Local IP:");
-		lcdPrintlnS(localbuf);
+}
 
 
-		struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, strlen(udp_msg), PBUF_RAM);
+void sendMsg(){
+    err_t err;
+
+    struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, strlen(udp_msg), PBUF_RAM);
     if (p == NULL) {
         lcdPrintlnS("UDP-Client Pufferfehler");
         return;
@@ -101,13 +101,11 @@ void selectServer(int serverNr) {
     memcpy(p->payload, udp_msg, strlen(udp_msg));
 
     // Nachricht senden
-		err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
-    if (err == ERR_OK) {
-        lcdPrintlnS("UDP-Client Nachricht gesendet");
-    } else {
-        lcdPrintlnS("UDP-Client Sendefehler");
+	err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
+    if (err != ERR_OK) {
+        pbuf_free(p);
+        return;
     }
-
     // Puffer freigeben
     pbuf_free(p);
 }

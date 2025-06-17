@@ -57,8 +57,8 @@ void processButtonInput(int button) {
     switch (button) {
         case 0:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 0");
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+            sendMsg();
             break;
 
         case 1:
