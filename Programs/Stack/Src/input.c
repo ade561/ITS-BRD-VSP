@@ -58,13 +58,13 @@ void processButtonInput(int button) {
         case 0:
             GUI_clear(WHITE);
 			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            sendMsg();
+            sendMsg(1);
             break;
 
         case 1:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 1");
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+            sendMsg(2);
             break;
 
         case 2:

@@ -1,55 +1,40 @@
 #include "message.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
+char* readMessage(char* message) {
 
-
-
-char* readMessage(struct Message message) {
-    char* functionName = message.functionName;
-
-    if (strcmp(functionName, "functionOne") == 0) {
-        //functionOne(message);
-        fflush(stdout);
-    } else if (strcmp(functionName, "functionTwo") == 0) {
-        //functionTwo(message);
-        fflush(stdout);
-    } else {
-        printf("Unbekannte Funktion: %s\n", functionName);
-    }
-
-    return NULL;
+    return "0";
 }
 
-struct Message buildMessage(char* functionName, char* msgText, char* serverIP, char* clientIP) {
-    struct Message m;
-    strncpy(m.functionName, functionName, sizeof(m.functionName) - 1);
-    m.functionName[sizeof(m.functionName) - 1] = '\0';
+char* buildMessage(ip_addr_t client_ip, ip_addr_t server_ip, uint16_t client_port, uint16_t server_port, int functionName) {
+    char* msg = malloc(MESSAGE_LEN);
+    if (!msg) return NULL;
 
-    strncpy(m.msg, msgText, sizeof(m.msg) - 1);
-    m.msg[sizeof(m.msg) - 1] = '\0';
+    // 1. Client-IP
+    memcpy(&msg[OFFSET_SRC_IP], &client_ip.addr, IP_ADDR_LEN);
 
-    strncpy(m.srcIP, clientIP, sizeof(m.srcIP) - 1);
-    m.srcIP[sizeof(m.srcIP) - 1] = '\0';
+    // 2. Server-IP
+    memcpy(&msg[OFFSET_DST_IP], &server_ip.addr, IP_ADDR_LEN);
 
-    strncpy(m.dstIP, serverIP, sizeof(m.dstIP) - 1);
-    m.dstIP[sizeof(m.dstIP) - 1] = '\0';
+    // 3. Client-Port (Big Endian)
+    msg[OFFSET_SRC_PORT]     = (client_port >> 8) & 0xFF;
+    msg[OFFSET_SRC_PORT + 1] = client_port & 0xFF;
 
-    return m;
+    // 4. Server-Port (Big Endian)
+    msg[OFFSET_DST_PORT]     = (server_port >> 8) & 0xFF;
+    msg[OFFSET_DST_PORT + 1] = server_port & 0xFF;
+
+    // 5. Payload / Function Name (Big Endian)
+    msg[OFFSET_PAYLOAD]     = (functionName >> 24) & 0xFF;
+    msg[OFFSET_PAYLOAD + 1] = (functionName >> 16) & 0xFF;
+    msg[OFFSET_PAYLOAD + 2] = (functionName >> 8) & 0xFF;
+    msg[OFFSET_PAYLOAD + 3] = functionName & 0xFF;
+
+    return msg;
 }
 
 
 char* readLine() {
-    char buffer[MAX_INPUT];
-    if (fgets(buffer, sizeof(buffer), stdin) == NULL) return NULL;
-
-    buffer[strcspn(buffer, "\n")] = '\0';  // \n entfernen
-
-    // Dynamischen Speicher reservieren für genau die Länge
-    char* result = malloc(strlen(buffer) + 1);
-    if (result != NULL) {
-        strcpy(result, buffer);
-    }
-    return result;
+    return "0";
 }

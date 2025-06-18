@@ -6,6 +6,7 @@
 #include "lwip_interface.h"
 #include "LCD_GUI.h"
 #include "err.h"
+#include "message.h"
 
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
@@ -90,22 +91,22 @@ void selectServer(int serverNr) {
 }
 
 
-void sendMsg(){
+void sendMsg(int number) {
     err_t err;
 
-    struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, strlen(udp_msg), PBUF_RAM);
+    char* message = buildMessage(its_brd_netif.ip_addr, server_ip, UDP_LOCAL_PORT, UDP_SERVER_PORT, number);
+    if (!message) return;
+
+    struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, MESSAGE_LEN, PBUF_RAM);
     if (p == NULL) {
         lcdPrintlnS("UDP-Client Pufferfehler");
+        free(message);
         return;
     }
-    memcpy(p->payload, udp_msg, strlen(udp_msg));
 
-    // Nachricht senden
-	err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
-    if (err != ERR_OK) {
-        pbuf_free(p);
-        return;
-    }
-    // Puffer freigeben
+    memcpy(p->payload, message, MESSAGE_LEN);
+    free(message);
+
+    err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
     pbuf_free(p);
 }

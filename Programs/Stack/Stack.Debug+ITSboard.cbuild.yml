@@ -366,6 +366,8 @@ build:
           category: sourceC
         - file: Src/input.c
           category: sourceC
+        - file: Src/message.c
+          category: sourceC
     - group: Program/Net/Src
       files:
         - file: Src/net/ethernetif.c

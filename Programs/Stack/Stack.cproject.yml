@@ -227,6 +227,7 @@ project:
         - file: Src/udp_client.c
         - file: Src/output.c
         - file: Src/input.c
+        - file: Src/message.c
 
     # Benutzerdefinierte Programmdateien
     - group: Program/Net/Src
