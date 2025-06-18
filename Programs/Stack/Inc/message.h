@@ -22,7 +22,22 @@
 #define OFFSET_PAYLOAD   (OFFSET_DST_PORT + PORT_LEN)
 
 
+//Message Payloads
+#define MOVE_RIGHT 1
+#define MOVE_LEFT 2
+#define MOVE_UP 3
+#define MOVE_DOWN 4
+#define MOVE_FORWARD 5
+#define MOVE_BACKWARDS 6
+#define OPEN_GRIP 7
+#define CLOSE_GRIP 8
 
+#define MOVE_LEFT_TO_RIGHT_UP 9
+#define MOVE_RIGHT_TO_LEFT_UP 10
+#define MOVE_LEFT_TO_RIGHT_DOWN 11
+#define MOVE_RIGHT_TO_LEFT_DOWN 12
+
+#define HEARTBEAT 13
 
 char* readLine();
 char* readMessage(char* message);
