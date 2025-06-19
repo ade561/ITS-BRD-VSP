@@ -52,8 +52,6 @@ int isButtonPressed(){
 
 
 void processButtonInput(int button) {
-    Terminal terminal;
-
     switch (button) {
         case 0:
             GUI_clear(WHITE);
@@ -69,25 +67,25 @@ void processButtonInput(int button) {
 
         case 2:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
             lcdPrintlnS("CASE 2");
             break;
 
         case 3:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
             lcdPrintlnS("CASE 3");
             break;
 
         case 4:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
             lcdPrintlnS("CASE 4");
             break;
 
         case 5:
             GUI_clear(WHITE);
-						lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
+			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
             lcdPrintlnS("CASE 5");
             break;
 
