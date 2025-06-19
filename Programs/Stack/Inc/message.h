@@ -23,6 +23,11 @@
 
 
 //Message Payloads
+
+#define NON_SHIFT_NUM_COMMAND_CASES 6
+#define SHIFT_NUM_COMMAND_CASES 6
+
+
 #define MOVE_RIGHT 1
 #define MOVE_LEFT 2
 #define MOVE_UP 3

@@ -32,9 +32,18 @@
 #include "output.h"
 #include "terminal.h"
 #include "udp_client.h"
+#include "message.h"
 #define DEFAULT_XCORD 0
 #define DEFAULT_YCORD 0
 
+static int shiftButtonPressed = 0;
+static const int nonShiftCommands[NON_SHIFT_NUM_COMMAND_CASES] = {
+    MOVE_RIGHT, MOVE_LEFT, MOVE_UP, MOVE_DOWN, MOVE_FORWARD, MOVE_BACKWARDS
+};
+static const int shiftCommands[SHIFT_NUM_COMMAND_CASES] = {
+    OPEN_GRIP, CLOSE_GRIP, MOVE_LEFT_TO_RIGHT_UP, MOVE_RIGHT_TO_LEFT_UP,
+    MOVE_LEFT_TO_RIGHT_DOWN, MOVE_RIGHT_TO_LEFT_DOWN
+};
 
 int isButtonPressed(){
 	int button = 0;
@@ -52,61 +61,60 @@ int isButtonPressed(){
 
 
 void processButtonInput(int button) {
-    switch (button) {
-        case 0:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            sendMsg(1);
-            break;
 
-        case 1:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            sendMsg(2);
-            break;
 
-        case 2:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 2");
-            break;
-
-        case 3:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 3");
-            break;
-
-        case 4:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 4");
-            break;
-
-        case 5:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 5");
-            break;
-
-        case 6:
-            GUI_clear(WHITE);
-			lcdGotoXY(DEFAULT_XCORD,DEFAULT_YCORD);
-            lcdPrintlnS("CASE 6");
-            break;
-
-        case 7:{
-            GUI_clear(WHITE);
-            lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
-            lcdPrintlnS("gebe einen Roboter an: ");
-            int ledNumber = processKeypadInput();
-            selectServer(ledNumber);
-            setLed(ledNumber);
-            break;
+    // Check if shift button is pressed
+    if(shiftButtonPressed) {
+        if (button >= 0 && button < SHIFT_NUM_COMMAND_CASES) {
+                GUI_clear(WHITE);
+                lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
+                lcdPrintlnS("BEFEHL gedrueckt:");
+                lcdPrintInt(shiftCommands[button]);
+            sendMsg(shiftCommands[button]);
+        }else {
+        switch (button) {
+            case 6:
+                shiftButtonPressed = 0;  // Toggle shift state
+                setLed(64, GPIOX_E_LED, LED_OFF);
+                break;
+            case 7: {
+                GUI_clear(WHITE);
+                lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
+                lcdPrintlnS("gebe einen Roboter an: ");
+                int ledNumber = processKeypadInput();
+                selectServer(ledNumber);
+                setLed(ledNumber, GPIOX_D_LED, LED_ON);
+                break;
+            }
+            default:
+                break;
+            }
+     }
+    }else {
+        
+    //shiftButtonPressed = 0; 
+    if(button >= 0 && button < NON_SHIFT_NUM_COMMAND_CASES) {
+        sendMsg(nonShiftCommands[button]);
+    } else {
+        switch (button) {
+            case 6:
+                shiftButtonPressed = 1;  // Toggle shift state
+                setLed(64, GPIOX_E_LED, LED_ON);
+                break;
+            case 7: {
+                GUI_clear(WHITE);
+                lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
+                lcdPrintlnS("gebe einen Roboter an: ");
+                int ledNumber = processKeypadInput();
+                selectServer(ledNumber);
+                setLed(ledNumber, GPIOX_D_LED, LED_ON);
+                break;
+            }
+            default:
+                break;
         }
-        default:
-            break;
     }
+}
 }
 
 

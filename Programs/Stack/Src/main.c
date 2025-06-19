@@ -6,6 +6,7 @@
  ******************************************************************************
  */
 /* Includes ------------------------------------------------------------------*/
+#include "delay.h"
 #define STM32F429xx
 #include <arm_compat.h>
 
@@ -54,10 +55,10 @@ int button = 0;
 		check_input();
 		button  = isButtonPressed();
 		//Heartbeat
-		
+	
 		// 2: Update the Values + do the logic
 		processButtonInput(button);
-
+    delay(250); // Debounce delay for button presses
 		// 3: Output
 		
 	}

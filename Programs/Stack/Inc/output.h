@@ -3,7 +3,7 @@
  * @file    output.h
  * @author  Darius Dao
  *          HAW-Hamburg
- *          Labor für technische Informatik
+ *          Labor fï¿½r technische Informatik
  *          Berliner Tor  7
  *          D-20099 Hamburg
  * @version 1.0
@@ -28,8 +28,15 @@
 #include "error.h"
 #include "terminal.h"
 
+#define LED_ON 1
+#define LED_OFF 0
+#define GPIOX_E_LED  2
+#define GPIOX_D_LED  3
 
-void setLed(int led);
+
+
+
+void setLed(int led, int gpiox, int state);
 void showText(char* text);
 
 

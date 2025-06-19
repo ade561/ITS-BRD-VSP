@@ -3,7 +3,7 @@
  * @file    main.c
  * @author  TI Team
  *          HAW-Hamburg
- *          Labor für technische Informatik
+ *          Labor fï¿½r technische Informatik
  *          Berliner Tor  7
  *          D-20099 Hamburg
  * @version 1.1
@@ -18,9 +18,24 @@
 #include "output.h"
 
 
-void setLed(int led){
-	GPIOD->BSRR = 0xFF << 16;
-	GPIOD->BSRR = led;
-	delay(250);
+void setLed(int led, int gpiox, int state){
+
+	// GPIOX_D_LED
+	if(gpiox == GPIOX_D_LED && state == LED_ON){
+		GPIOD->BSRR = 0xFF << 16;
+		GPIOD->BSRR = led;
+	}
+	else if(gpiox == GPIOX_D_LED && state == LED_OFF){
+  		GPIOD->BSRR = 0xFF << 16;
+	}
+
+	// GPIOX_E_LED
+	else if(gpiox == GPIOX_E_LED && state == LED_ON){
+		GPIOE->BSRR = 0xFF << 16;
+		GPIOE->BSRR = led; // Set the specific LED pin
+	  }
+	else if(gpiox == GPIOX_E_LED && state == LED_OFF){
+		GPIOE->BSRR = 0xFF << 16;
+	}
 }
 void showText(char* text);
