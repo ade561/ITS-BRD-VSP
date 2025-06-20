@@ -12,11 +12,9 @@
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
 #define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
 
+extern volatile uint32_t seqNumber;
 static struct udp_pcb *udp_client_pcb = NULL;
 static ip_addr_t server_ip;
-
-/* Nachricht an den Server */
-static const char udp_msg[] = "SIKIM";
 
 /* Empfangs-Callback */
 static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
@@ -94,7 +92,7 @@ void selectServer(int serverNr) {
 void sendMsg(int number) {
     err_t err;
 
-    char* message = buildMessage(its_brd_netif.ip_addr, server_ip, UDP_LOCAL_PORT, UDP_SERVER_PORT, number);
+    char* message = buildMessage(its_brd_netif.ip_addr, server_ip, UDP_LOCAL_PORT, UDP_SERVER_PORT, number, seqNumber++);
     if (!message) return;
 
     struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, MESSAGE_LEN, PBUF_RAM);
