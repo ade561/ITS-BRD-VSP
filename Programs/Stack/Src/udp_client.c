@@ -8,6 +8,7 @@
 #include "LCD_GUI.h"
 #include "err.h"
 #include "message.h"
+#include "output.h"
 #include "udp_client.h"
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
@@ -115,6 +116,8 @@ void selectServer(int serverNr) {
         return;
     }
 
+        disconnectServer();
+
 		// 1. IP-Adresse korrekt zusammensetzen
 		snprintf(ip_str, sizeof(ip_str), "%s%d", UDP_SERVER_IP, serverNr);
 		lcdPrintlnS(ip_str);
@@ -128,6 +131,16 @@ void selectServer(int serverNr) {
 		// 3. Debug-Ausgabe:
 		char serverbuf[SERVERBUFFER_SIZE];
 		ipaddr_ntoa_r(&server_ip, serverbuf, sizeof(serverbuf));
+
+
+        udp_connect(udp_client_pcb, &server_ip, UDP_SERVER_PORT);
+        if (err != ERR_OK) {
+            lcdPrintlnS("UDP-Client Connect Fehler");
+            return;
+        }
+
+
+
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
 }
@@ -149,6 +162,18 @@ void sendMsg(int number) {
     memcpy(p->payload, message, MESSAGE_LEN);
     free(message);
 
-    err = udp_sendto_if(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT, &its_brd_netif);
+    err = udp_send(udp_client_pcb, p);
+    if (err != ERR_OK) {
+        lcdPrintlnS("UDP-Client Sende Fehler");
+        pbuf_free(p);
+        return;
+    }
     pbuf_free(p);
 }
+
+
+void disconnectServer(void) {
+    udp_disconnect(udp_client_pcb);
+    setLed(0xFF, GPIOX_D_LED, LED_OFF);
+}
+

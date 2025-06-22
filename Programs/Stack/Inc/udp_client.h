@@ -15,7 +15,7 @@ extern "C" {
 void udp_client_init(void);
 void selectServer(int serverNr);
 void sendMsg(int number);
-
+void disconnectServer(void);
 #ifdef __cplusplus
 }
 #endif
