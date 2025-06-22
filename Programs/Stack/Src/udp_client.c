@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include "err.h"
+#include "ip_addr.h"
 #include "lwip/udp.h"
 #include "lcd.h"
 #include "lwip_interface.h"
 #include "LCD_GUI.h"
 #include "err.h"
 #include "message.h"
-
+#include "udp_client.h"
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
 #define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
@@ -19,20 +20,63 @@ static ip_addr_t server_ip;
 /* Empfangs-Callback */
 static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
                                      const ip_addr_t *addr, u16_t port) {
-    if (p != NULL) {
-        char buffer[128];
-        memcpy(buffer, p->payload, p->len > 127 ? 127 : p->len);
-        buffer[p->len > 127 ? 127 : p->len] = '\0';
+    if (p != NULL && p->len >= MESSAGE_LEN) {
+        const uint8_t* msg = (const uint8_t*)p->payload;
 
-        lcdPrintS("UDP Antwort: ");
-        lcdPrintlnS(buffer);
+        ip_addr_t src_ip;
+        memcpy(&src_ip.addr, &msg[OFFSET_SRC_IP], IP_ADDR_LEN);
 
+        ip_addr_t dst_ip;
+        memcpy(&dst_ip.addr, &msg[OFFSET_DST_IP], IP_ADDR_LEN);
+
+        uint16_t src_port = (msg[OFFSET_SRC_PORT] << 8) | msg[OFFSET_SRC_PORT + 1];
+        uint16_t dst_port = (msg[OFFSET_DST_PORT] << 8) | msg[OFFSET_DST_PORT + 1]; 
+        // Payload / Function Name  
+        int function_name = (msg[OFFSET_PAYLOAD] << 24) | (msg[OFFSET_PAYLOAD + 1] << 16) |
+                            (msg[OFFSET_PAYLOAD + 2] << 8) | msg[OFFSET_PAYLOAD + 3];
+
+        uint32_t seq_num = (msg[OFFSET_SEQ_NUM] << 24) | (msg[OFFSET_SEQ_NUM + 1] << 16) |
+                           (msg[OFFSET_SEQ_NUM + 2] << 8) | msg[OFFSET_SEQ_NUM + 3];
+
+        uint32_t checksum = (msg[OFFSET_CHECKSUM] << 24) | (msg[OFFSET_CHECKSUM + 1] << 16) |
+                            (msg[OFFSET_CHECKSUM + 2] << 8) | msg[OFFSET_CHECKSUM + 3];
+
+        // Checksum-Prüfung
+        uint32_t calculated_checksum = 0;
+        for (int i = 0; i < MESSAGE_LEN - CHECKSUM_LEN; i++) {
+            calculated_checksum += msg[i];
+        }
+        if (calculated_checksum != checksum) {
+            lcdPrintlnS("Checksum Fehler");
+            pbuf_free(p);
+            return;
+        }
+        // Nachricht verarbeiten
+            GUI_clear(WHITE);
+            lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
+            lcdPrintlnS("Nachricht OK");
+            lcdPrintlnS("Empfangen von:");
+            char src_ip_str[16];
+            ipaddr_ntoa_r(&src_ip, src_ip_str, sizeof(src_ip_str));
+            lcdPrintS("IP: ");
+            lcdPrintlnS(src_ip_str);
+            lcdPrintS("Port: ");
+            lcdPrintInt(src_port);
+            lcdPrintlnS(" ");
+            lcdPrintS("Nachricht: ");
+            lcdPrintS("Funktion: ");
+            lcdPrintInt(function_name);
+            lcdPrintS(", Seq: ");
+            lcdPrintInt(seq_num);
+        // Puffer freigeben
         pbuf_free(p);
+    } else {
+        lcdPrintlnS("Ungueltige Nachricht empfangen");
     }
 }
 
 void udp_client_init(void) {
-		char ipbuf[16];  // Maximal formatierte IPv4-Adresse ist "255.255.255.255\0" = 16 Zeichen
+	char ipbuf[16];  // Maximal formatierte IPv4-Adresse ist "255.255.255.255\0" = 16 Zeichen
     err_t err;
 
     // Neues UDP PCB erzeugen
@@ -50,7 +94,7 @@ void udp_client_init(void) {
         return;
     }
 
-
+        udp_recv(udp_client_pcb, udp_client_recv_callback, NULL);
 		// convert IP address to String
 		ipaddr_ntoa_r(&its_brd_netif.ip_addr, ipbuf, sizeof(ipbuf));
 		GUI_clear(WHITE);
@@ -82,7 +126,7 @@ void selectServer(int serverNr) {
 		}
 
 		// 3. Debug-Ausgabe:
-		char serverbuf[16];
+		char serverbuf[SERVERBUFFER_SIZE];
 		ipaddr_ntoa_r(&server_ip, serverbuf, sizeof(serverbuf));
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);

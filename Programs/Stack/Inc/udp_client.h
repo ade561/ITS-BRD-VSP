@@ -8,6 +8,7 @@ extern "C" {
 #include "lwip/udp.h"
 #include "lwip/ip_addr.h"
 
+#define SERVERBUFFER_SIZE 16
 /**
  * @brief  Initialisiert den UDP-Client und sendet eine Nachricht
  */

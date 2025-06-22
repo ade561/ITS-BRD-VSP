@@ -33,8 +33,7 @@
 #include "terminal.h"
 #include "udp_client.h"
 #include "message.h"
-#define DEFAULT_XCORD 0
-#define DEFAULT_YCORD 0
+
 
 static int shiftButtonPressed = 0;
 static const int nonShiftCommands[NON_SHIFT_NUM_COMMAND_CASES] = {
