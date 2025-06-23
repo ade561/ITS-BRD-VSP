@@ -49,6 +49,9 @@
 #define HEARTBEAT 13
 #define DEFAULT_XCORD 0
 #define DEFAULT_YCORD 0
+
+#define HEARTBEAT_INTERVAL 500 // Interval in milliseconds for heartbeat messages
+
 char* readLine();
 char* readMessage(char* message);
 char* buildMessage(ip_addr_t client_ip, ip_addr_t server_ip, uint16_t client_port, uint16_t server_port, int functionName, uint32_t seqNumber);

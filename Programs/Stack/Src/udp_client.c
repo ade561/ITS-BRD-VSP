@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 #include "err.h"
@@ -9,6 +10,7 @@
 #include "err.h"
 #include "message.h"
 #include "output.h"
+#include "timer.h"
 #include "udp_client.h"
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
@@ -17,6 +19,8 @@
 extern volatile uint32_t seqNumber;
 static struct udp_pcb *udp_client_pcb = NULL;
 static ip_addr_t server_ip;
+static uint64_t currentTime, oldTime;
+static uint8_t heartbeatStatus = 0; 
 
 /* Empfangs-Callback */
 static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
@@ -52,23 +56,19 @@ static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf
             pbuf_free(p);
             return;
         }
-        // Nachricht verarbeiten
-            GUI_clear(WHITE);
-            lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
-            lcdPrintlnS("Nachricht OK");
-            lcdPrintlnS("Empfangen von:");
-            char src_ip_str[16];
-            ipaddr_ntoa_r(&src_ip, src_ip_str, sizeof(src_ip_str));
-            lcdPrintS("IP: ");
-            lcdPrintlnS(src_ip_str);
-            lcdPrintS("Port: ");
-            lcdPrintInt(src_port);
-            lcdPrintlnS(" ");
-            lcdPrintS("Nachricht: ");
-            lcdPrintS("Funktion: ");
-            lcdPrintInt(function_name);
-            lcdPrintS(", Seq: ");
-            lcdPrintInt(seq_num);
+
+        if(function_name == HEARTBEAT){
+        oldTime = TIM2->CNT;
+            if(oldTime - currentTime > HEARTBEAT_INTERVAL) {
+                sendMsg(HEARTBEAT);
+                heartbeatStatus = 1;
+                currentTime = oldTime;
+                setLed(128, GPIOX_E_LED, LED_ON);
+            }else {
+                heartbeatStatus = 0;
+                setLed(128, GPIOX_E_LED, LED_OFF);
+            }
+        }
         // Puffer freigeben
         pbuf_free(p);
     } else {
@@ -132,15 +132,16 @@ void selectServer(int serverNr) {
 		char serverbuf[SERVERBUFFER_SIZE];
 		ipaddr_ntoa_r(&server_ip, serverbuf, sizeof(serverbuf));
 
-
-        udp_connect(udp_client_pcb, &server_ip, UDP_SERVER_PORT);
+        err = udp_connect(udp_client_pcb, &server_ip, UDP_SERVER_PORT);
         if (err != ERR_OK) {
             lcdPrintlnS("UDP-Client Connect Fehler");
+            udp_remove(udp_client_pcb);
             return;
         }
 
-
-
+        initTimer();
+        sendMsg(HEARTBEAT);
+        currentTime = TIM2->CNT;
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
 }
@@ -162,7 +163,7 @@ void sendMsg(int number) {
     memcpy(p->payload, message, MESSAGE_LEN);
     free(message);
 
-    err = udp_send(udp_client_pcb, p);
+    err = udp_sendto(udp_client_pcb, p, &server_ip, UDP_SERVER_PORT);
     if (err != ERR_OK) {
         lcdPrintlnS("UDP-Client Sende Fehler");
         pbuf_free(p);
@@ -173,7 +174,9 @@ void sendMsg(int number) {
 
 
 void disconnectServer(void) {
+    if (udp_client_pcb->remote_port != 0) {
     udp_disconnect(udp_client_pcb);
-    setLed(0xFF, GPIOX_D_LED, LED_OFF);
+    setLed(128, GPIOX_E_LED, LED_ON);
+    }
 }
 
