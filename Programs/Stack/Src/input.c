@@ -33,6 +33,7 @@
 #include "terminal.h"
 #include "udp_client.h"
 #include "message.h"
+#include "led.h"
 
 
 static int shiftButtonPressed = 0;
@@ -74,7 +75,7 @@ void processButtonInput(int button) {
         switch (button) {
             case 6:
                 shiftButtonPressed = 0;  // Toggle shift state
-                setLed(64, GPIOX_E_LED, LED_OFF);
+                toggleGPIO(&led_pins[6]);
                 break;
             case 7: {
                 GUI_clear(WHITE);
@@ -98,7 +99,7 @@ void processButtonInput(int button) {
         switch (button) {
             case 6:
                 shiftButtonPressed = 1;  // Toggle shift state
-                setLed(64, GPIOX_E_LED, LED_ON);
+                toggleGPIO(&led_pins[6]);
                 break;
             case 7: {
                 GUI_clear(WHITE);

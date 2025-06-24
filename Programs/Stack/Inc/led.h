@@ -13,10 +13,10 @@ typedef struct {
 
 
 // GPIO configuration
-static const GPIO_Pin led_pins[] = {{GPIOD, GPIO_PIN_0}, {GPIOD, GPIO_PIN_1},
-                                    {GPIOD, GPIO_PIN_2}, {GPIOD, GPIO_PIN_3},
-                                    {GPIOD, GPIO_PIN_4}, {GPIOD, GPIO_PIN_5},
-                                    {GPIOD, GPIO_PIN_6}, {GPIOD, GPIO_PIN_7}};
+static const GPIO_Pin led_pins[] = {{GPIOE, GPIO_PIN_0}, {GPIOE, GPIO_PIN_1},
+                                    {GPIOE, GPIO_PIN_2}, {GPIOE, GPIO_PIN_3},
+                                    {GPIOE, GPIO_PIN_4}, {GPIOE, GPIO_PIN_5},
+                                    {GPIOE, GPIO_PIN_6}, {GPIOE, GPIO_PIN_7}};
 
 // Function to toggle the GPIO pin
 void toggleGPIO(const GPIO_Pin* gpio);

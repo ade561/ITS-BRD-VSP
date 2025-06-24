@@ -12,6 +12,7 @@
 #include "output.h"
 #include "timer.h"
 #include "udp_client.h"
+#include "led.h"
 #define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
 #define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
@@ -60,13 +61,17 @@ static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf
         if(function_name == HEARTBEAT){
         oldTime = TIM2->CNT;
             if(oldTime - currentTime > HEARTBEAT_INTERVAL) {
-                sendMsg(HEARTBEAT);
+                //sendMsg(HEARTBEAT);
+                if(heartbeatStatus != 1) {
+                    toggleGPIO(&led_pins[7]);
+                }
                 heartbeatStatus = 1;
                 currentTime = oldTime;
-                setLed(128, GPIOX_E_LED, LED_ON);
+                //lcdPrintlnS("Heartbeat empfangen");
+
             }else {
                 heartbeatStatus = 0;
-                setLed(128, GPIOX_E_LED, LED_OFF);
+                toggleGPIO(&led_pins[7]);
             }
         }
         // Puffer freigeben
@@ -140,7 +145,7 @@ void selectServer(int serverNr) {
         }
 
         initTimer();
-        sendMsg(HEARTBEAT);
+        //sendMsg(HEARTBEAT);
         currentTime = TIM2->CNT;
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
@@ -176,7 +181,7 @@ void sendMsg(int number) {
 void disconnectServer(void) {
     if (udp_client_pcb->remote_port != 0) {
     udp_disconnect(udp_client_pcb);
-    setLed(128, GPIOX_E_LED, LED_ON);
+    toggleGPIO(&led_pins[7]);
     }
 }
 
