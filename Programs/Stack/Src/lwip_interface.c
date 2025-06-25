@@ -9,9 +9,9 @@
 
 /*Static IP ADDRESS: IP_ADDR0.IP_ADDR1.IP_ADDR2.IP_ADDR3 */
 // 192.168.33.99
-#define IP_ADDR0 (uint8_t)192
-#define IP_ADDR1 (uint8_t)168
-#define IP_ADDR2 (uint8_t)178
+#define IP_ADDR0 (uint8_t)172
+#define IP_ADDR1 (uint8_t)16
+#define IP_ADDR2 (uint8_t)1
 #define IP_ADDR3 (uint8_t)99
 
 /*NETMASK*/
@@ -23,9 +23,9 @@
 
 /*Gateway Address*/
 // 192.168.33.1
-#define GW_ADDR0 (uint8_t)192
-#define GW_ADDR1 (uint8_t)168
-#define GW_ADDR2 (uint8_t)178
+#define GW_ADDR0 (uint8_t)172
+#define GW_ADDR1 (uint8_t)16
+#define GW_ADDR2 (uint8_t)1
 #define GW_ADDR3 (uint8_t)1
 
 extern ETH_HandleTypeDef EthHandle;

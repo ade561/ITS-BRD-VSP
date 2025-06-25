@@ -360,13 +360,18 @@ build:
           category: sourceC
         - file: Src/tcp_server.c
           category: sourceC
+        - file: Src/udp_client.c
+          category: sourceC
+        - file: Src/output.c
+          category: sourceC
+        - file: Src/input.c
+          category: sourceC
+        - file: Src/message.c
+          category: sourceC
     - group: Program/Net/Src
       files:
         - file: Src/net/ethernetif.c
           category: sourceC
-  constructed-files:
-    - file: RTE/_Release_ITSboard/RTE_Components.h
-      category: header
   licenses:
     - license: <unknown>
       packs:
