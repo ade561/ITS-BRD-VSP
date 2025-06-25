@@ -26,9 +26,16 @@
 #include "output.h"
 #include "input.h"
 #include "udp_client.h"
+#include "timer.h"
+#include "message.h"
 
 extern void initITSboard(void);
 extern void initLCDTouch(void);
+
+volatile uint64_t currentTime, oldTime;
+volatile uint8_t heartbeatStatus = 255;
+volatile uint8_t keepAliveCounter = 0; 
+
 
 /**
   * @brief  Main program
@@ -46,19 +53,38 @@ int main(void) {
     init_lwip_stack();
     netif_config();
     udp_client_init();
+    initTimer();
+    currentTime = TIM2->CNT;
+    oldTime = TIM2->CNT;
 
 
 
 int button = 0;
 	while(1){
+    //Heartbeat
+        //lcdPrintlnS("oldTime: ");
+        //lcdPrintInt(oldTime);
+        
+        //lcdPrintlnS("currentTime: ");
+        //lcdPrintInt(currentTime);
+        if((oldTime - currentTime) < HEARTBEAT_INTERVAL) {
+          if(keepAliveCounter > 10){
+            if(heartbeatStatus == 1) {
+                toggleGPIO(&led_pins[7]);
+              }
+            heartbeatStatus = 0;
+            currentTime = oldTime;
+          }else{
+            keepAliveCounter++;
+          }
+        }
 		// 1: Snapshot of all Sensors and Actuators
 		check_input();
 		button  = isButtonPressed();
-		//Heartbeat
 	
 		// 2: Update the Values + do the logic
 		processButtonInput(button);
-    delay(250); // Debounce delay for button presses
+    delay(50); // Debounce delay for button presses
 		// 3: Output
 		
 	}

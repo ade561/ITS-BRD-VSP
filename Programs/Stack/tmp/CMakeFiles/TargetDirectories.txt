@@ -1,6 +1,6 @@
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard.dir
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.dir
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-configure.dir
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.dir
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/edit_cache.dir
-D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/rebuild_cache.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-configure.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/edit_cache.dir
+D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/rebuild_cache.dir
