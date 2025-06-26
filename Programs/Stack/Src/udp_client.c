@@ -13,7 +13,7 @@
 #include "timer.h"
 #include "udp_client.h"
 #include "led.h"
-#define UDP_SERVER_IP   "172.16.1."  // IP-Adresse des Zielservers
+#define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
 #define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
 
@@ -67,6 +67,7 @@ static void udp_client_recv_callback(void *arg, struct udp_pcb *pcb, struct pbuf
                 keepAliveCounter = 0;
                 heartbeatStatus = 1;
                 currentTime = oldTime;
+                sendMsg(ACKNOWLEDGE);
             }
         
         // Puffer freigeben
@@ -139,7 +140,7 @@ void selectServer(int serverNr) {
             return;
         }
 
-        sendMsg(HEARTBEAT);
+        sendMsg(ACKNOWLEDGE);
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
 }

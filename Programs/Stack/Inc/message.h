@@ -48,6 +48,8 @@
 #define MOVE_RIGHT_TO_LEFT_DOWN 12
 
 #define HEARTBEAT 13
+#define ACKNOWLEDGE 14
+
 #define DEFAULT_XCORD 0
 #define DEFAULT_YCORD 0
 

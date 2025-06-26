@@ -34,18 +34,18 @@ include CMakeFiles\rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = D$:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp\
+cmake_ninja_workdir = D$:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp\
 
 #############################################
 # Utility command for Stack.Debug+ITSboard
 
-build Stack.Debug+ITSboard: phony CMakeFiles\Stack.Debug+ITSboard CMakeFiles\Stack.Debug+ITSboard-complete Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-done Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\VSProjekte\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update Stack.Debug+ITSboard-build Stack.Debug+ITSboard-configure
+build Stack.Debug+ITSboard: phony CMakeFiles\Stack.Debug+ITSboard CMakeFiles\Stack.Debug+ITSboard-complete Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-done Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update Stack.Debug+ITSboard-build Stack.Debug+ITSboard-configure
 
 
 #############################################
 # Utility command for Stack.Debug+ITSboard-build
 
-build Stack.Debug+ITSboard-build: phony CMakeFiles\Stack.Debug+ITSboard-build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\VSProjekte\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir Stack.Debug+ITSboard-configure
+build Stack.Debug+ITSboard-build: phony CMakeFiles\Stack.Debug+ITSboard-build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir Stack.Debug+ITSboard-configure
 
 
 #############################################
@@ -64,7 +64,7 @@ build Stack.Debug+ITSboard-database: phony CMakeFiles\Stack.Debug+ITSboard-datab
 # Utility command for edit_cache
 
 build CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake-gui.exe -SD:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp -BD:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake-gui.exe -SD:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp -BD:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -76,7 +76,7 @@ build edit_cache: phony CMakeFiles\edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --regenerate-during-build -SD:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp -BD:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --regenerate-during-build -SD:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp -BD:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -94,7 +94,7 @@ build CMakeFiles\Stack.Debug+ITSboard | ${cmake_ninja_workdir}CMakeFiles\Stack.D
 # Custom command for CMakeFiles\Stack.Debug+ITSboard-complete
 
 build CMakeFiles\Stack.Debug+ITSboard-complete Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-done | ${cmake_ninja_workdir}CMakeFiles\Stack.Debug+ITSboard-complete ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-done: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test || Stack.Debug+ITSboard-build Stack.Debug+ITSboard-configure
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E make_directory D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-complete && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-done"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E make_directory D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-complete && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-done"
   DESC = Completed 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -102,8 +102,8 @@ build CMakeFiles\Stack.Debug+ITSboard-complete Stack.Debug+ITSboard\src\Stack.De
 #############################################
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build
 
-build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\VSProjekte\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure || Stack.Debug+ITSboard-configure
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo "Building CMake target 'Stack.Debug+ITSboard'" && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --build D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/1"
+build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build D$:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug\Stack.axf | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure || Stack.Debug+ITSboard-configure
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo "Building CMake target 'Stack.Debug+ITSboard'" && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --build D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/1"
   DESC = Performing build step for 'Stack.Debug+ITSboard'
   pool = console
   restat = 1
@@ -113,7 +113,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-b
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure: CUSTOM_COMMAND Stack.Debug+ITSboard\tmp\Stack.Debug+ITSboard-cfgcmd.txt Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -P D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure-.cmake && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -P D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure-.cmake && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure"
   DESC = Performing configure step for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -122,7 +122,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-c
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-source_dirinfo.txt Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download"
   DESC = No download step for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -131,7 +131,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-d
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-build || Stack.Debug+ITSboard-build Stack.Debug+ITSboard-configure
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append"
   DESC = No install step for 'Stack.Debug+ITSboard'
 
 
@@ -139,7 +139,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-i
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-mkdir: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -Dcfgdir= -P D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/tmp/Stack.Debug+ITSboard-mkdirs.cmake && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -Dcfgdir= -P D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/tmp/Stack.Debug+ITSboard-mkdirs.cmake && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir"
   DESC = Creating directories for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -148,7 +148,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-m
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-patch-info.txt Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch"
   DESC = No patch step for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -157,7 +157,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-p
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-test: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-install || Stack.Debug+ITSboard-build Stack.Debug+ITSboard-configure
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-test"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp\1 && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-test"
   DESC = No test step for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -166,7 +166,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-t
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-update-info.txt Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-download
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E echo_append && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe -E touch D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update"
   DESC = No update step for 'Stack.Debug+ITSboard'
   restat = 1
 
@@ -193,7 +193,7 @@ build CMakeFiles\Stack.Debug+ITSboard-database | ${cmake_ninja_workdir}CMakeFile
 # Custom command for Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-database
 
 build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-database | ${cmake_ninja_workdir}Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-database: CUSTOM_COMMAND Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-configure || Stack.Debug+ITSboard-configure
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D D:\VSProjekte\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --build D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/1 --target database"
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\tmp && C:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe --build D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/1 --target database"
   DESC = Performing database step for 'Stack.Debug+ITSboard'
 
 # =============================================================================
@@ -205,7 +205,7 @@ build Stack.Debug+ITSboard\src\Stack.Debug+ITSboard-stamp\Stack.Debug+ITSboard-d
 # =============================================================================
 
 #############################################
-# Folder: D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp
+# Folder: D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp
 
 build all: phony Stack.Debug+ITSboard
 
@@ -216,14 +216,14 @@ build all: phony Stack.Debug+ITSboard
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeGenericSystem.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.28.4\CMakeSystem.cmake CMakeLists.txt Stack.Debug+ITSboard\tmp\Stack.Debug+ITSboard-mkdirs.cmake roots.cmake
+build build.ninja: RERUN_CMAKE | C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeGenericSystem.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.28.4\CMakeSystem.cmake CMakeLists.txt Stack.Debug+ITSboard\tmp\Stack.Debug+ITSboard-mkdirs.cmake roots.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeGenericSystem.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows.cmake C$:\Users\dalen\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.28.4\CMakeSystem.cmake CMakeLists.txt Stack.Debug+ITSboard\tmp\Stack.Debug+ITSboard-mkdirs.cmake roots.cmake: phony
+build C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeGenericSystem.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeInitializeConfigs.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInformation.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\CMakeSystemSpecificInitialize.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\PatchInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\RepositoryInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\UpdateInfo.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\cfgcmd.txt.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\mkdirs.cmake.in C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\ExternalProject\shared_internal_commands.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows-Initialize.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\Windows.cmake C$:\Users\dariu\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\share\cmake-3.28\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.28.4\CMakeSystem.cmake CMakeLists.txt Stack.Debug+ITSboard\tmp\Stack.Debug+ITSboard-mkdirs.cmake roots.cmake: phony
 
 
 #############################################
