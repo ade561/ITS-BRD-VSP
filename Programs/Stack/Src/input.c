@@ -66,10 +66,6 @@ void processButtonInput(int button) {
     // Check if shift button is pressed
     if(shiftButtonPressed) {
         if (button >= 0 && button < SHIFT_NUM_COMMAND_CASES) {
-                GUI_clear(WHITE);
-                lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
-                lcdPrintlnS("BEFEHL gedrueckt:");
-                lcdPrintInt(shiftCommands[button]);
             sendMsg(shiftCommands[button]);
         }else {
         switch (button) {

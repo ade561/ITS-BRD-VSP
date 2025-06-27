@@ -123,7 +123,6 @@ void selectServer(int serverNr) {
 
 		// 1. IP-Adresse korrekt zusammensetzen
 		snprintf(ip_str, sizeof(ip_str), "%s%d", UDP_SERVER_IP, serverNr);
-		lcdPrintlnS(ip_str);
 
 		// 2. Nun IP-Konvertierung auf ip_str:
 		if (!ipaddr_aton(ip_str, &server_ip)) {
@@ -142,6 +141,7 @@ void selectServer(int serverNr) {
             return;
         }
 
+        GUI_clear(WHITE);
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
         lcdPrintlnS("TASTER:");
@@ -183,11 +183,13 @@ void sendMsg(int number) {
 void disconnectServer(void) {
     if (udp_client_pcb->remote_port != 0) {
     GUI_clear(WHITE);
+    lcdGotoXY(DEFAULT_XCORD, DEFAULT_XCORD);
     udp_disconnect(udp_client_pcb);
     udp_remove(udp_client_pcb);
     udp_client_pcb = NULL;
     setLed(ALL_LEDS, GPIOX_D_LED, LED_OFF);
-    lcdPrintlnS("Verbindung getrennt zum Server. Falls erneut verbunden werden soll, bitte ITS-BRD reset Taster betaetigen.");
+    lcdPrintlnS("Verbindung getrennt zum Roboter.");
+    lcdPrintlnS("Falls erneut verbunden werden soll, bitte ITS-BRD reset Taster betaetigen.");
     toggleGPIO(&led_pins[7]);
     keepAliveCounter = 0;
     }
