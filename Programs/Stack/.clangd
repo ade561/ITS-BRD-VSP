@@ -1,28 +1,32 @@
 CompileFlags:
-  CompilationDatabase: d:\VSProjekte\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug
+  CompilationDatabase: d:\KeilProjects\ITS-BRD\ITS-BRD-VSP\Programs\Stack\out\Stack\ITSboard\Debug
   Add:
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/CMSIS/Include
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/CMSIS/Include
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Utilities/Fonts
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../DisplayWaveshare/Inc'
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../stm32cubef4/Utilities/Fonts
     - >-
-      -ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../ITS_BRD_LIB/Utilities/AddFonts
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../lwip'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../lwip/src/include'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../lwip/src/include/lwip'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/RTE/_Debug_ITSboard'
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../DisplayWaveshare/Inc
     - >-
-      -IC:/Users/dalen/AppData/Local/arm/packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../ITS_BRD_LIB/Utilities/AddFonts
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../lwip'
     - >-
-      -IC:/Users/dalen/AppData/Local/arm/packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/../../ITS_BRD_LIB/Inc'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/Inc'
-    - '-ID:/VSProjekte/ITS-BRD-VSP/Programs/Stack/Inc/arch'
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../lwip/src/include
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../lwip/src/include/lwip
+    - >-
+      -ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/RTE/_Debug_ITSboard'
+    - >-
+      -IC:/Users/dariu/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - >-
+      -IC:/Users/dariu/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/../../ITS_BRD_LIB/Inc'
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/Inc'
+    - '-ID:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/Inc/arch'

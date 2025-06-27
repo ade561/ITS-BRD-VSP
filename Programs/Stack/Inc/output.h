@@ -30,6 +30,7 @@
 
 #define LED_ON 1
 #define LED_OFF 0
+#define ALL_LEDS 16
 #define GPIOX_E_LED  2
 #define GPIOX_D_LED  3
 

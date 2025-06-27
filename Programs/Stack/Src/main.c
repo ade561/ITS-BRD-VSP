@@ -33,7 +33,7 @@ extern void initITSboard(void);
 extern void initLCDTouch(void);
 
 volatile uint64_t currentTime, oldTime;
-volatile uint8_t heartbeatStatus = 255;
+volatile uint8_t heartbeatStatus = 0;
 volatile uint8_t keepAliveCounter = 0; 
 
 
@@ -70,10 +70,10 @@ int button = 0;
         if((oldTime - currentTime) < HEARTBEAT_INTERVAL) {
           if(keepAliveCounter > 10){
             if(heartbeatStatus == 1) {
-                toggleGPIO(&led_pins[7]);
-              }
+            disconnectServer();
             heartbeatStatus = 0;
             currentTime = oldTime;
+          }
           }else{
             keepAliveCounter++;
           }

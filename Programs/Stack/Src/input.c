@@ -41,8 +41,7 @@ static const int nonShiftCommands[NON_SHIFT_NUM_COMMAND_CASES] = {
     MOVE_RIGHT, MOVE_LEFT, MOVE_UP, MOVE_DOWN, MOVE_FORWARD, MOVE_BACKWARDS
 };
 static const int shiftCommands[SHIFT_NUM_COMMAND_CASES] = {
-    OPEN_GRIP, CLOSE_GRIP, MOVE_LEFT_TO_RIGHT_UP, MOVE_RIGHT_TO_LEFT_UP,
-    MOVE_LEFT_TO_RIGHT_DOWN, MOVE_RIGHT_TO_LEFT_DOWN
+    OPEN_GRIP, CLOSE_GRIP
 };
 
 int isButtonPressed(){
@@ -51,6 +50,7 @@ int isButtonPressed(){
 		 char gpiofPinXPressed = (IDR_MASK_PIN(i) != (GPIOF->IDR & IDR_MASK_PIN(i)));
 		if(gpiofPinXPressed == 1){
 			button = i;
+            delay(50);
 			break;
 		}else{
 			button = BUTTON_OUT_OF_SCOPE;
@@ -74,7 +74,7 @@ void processButtonInput(int button) {
         }else {
         switch (button) {
             case 6:
-                shiftButtonPressed = 0;  // Toggle shift state
+                shiftButtonPressed = 0;
                 toggleGPIO(&led_pins[6]);
                 break;
             case 7: {

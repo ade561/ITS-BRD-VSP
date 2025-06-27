@@ -103,6 +103,8 @@ void udp_client_init(void) {
 		// show on display
 		lcdPrintS("Local IP:");
 		lcdPrintlnS(ipbuf);
+        lcdPrintS("zur Verbindung mit einem Server Taste S7 betaetigen");
+
 
 }
 
@@ -140,9 +142,15 @@ void selectServer(int serverNr) {
             return;
         }
 
-        sendMsg(ACKNOWLEDGE);
 		lcdPrintS("Selected Robot: ");
 		lcdPrintlnS(serverbuf);
+        lcdPrintlnS("TASTER:");
+        lcdPrintlnS("[S0] Rechts  [S1] Links");
+        lcdPrintlnS("[S2] Hoch  [S3] Runter");
+        lcdPrintlnS("[S4] Vorne  [S5] Hinten");
+        lcdPrintlnS("[S6] Shift  [S7] neu verbinden");
+
+        sendMsg(ACKNOWLEDGE);
 }
 
 
@@ -174,8 +182,14 @@ void sendMsg(int number) {
 
 void disconnectServer(void) {
     if (udp_client_pcb->remote_port != 0) {
+    GUI_clear(WHITE);
     udp_disconnect(udp_client_pcb);
+    udp_remove(udp_client_pcb);
+    udp_client_pcb = NULL;
+    setLed(ALL_LEDS, GPIOX_D_LED, LED_OFF);
+    lcdPrintlnS("Verbindung getrennt zum Server. Falls erneut verbunden werden soll, bitte ITS-BRD reset Taster betaetigen.");
     toggleGPIO(&led_pins[7]);
+    keepAliveCounter = 0;
     }
 }
 

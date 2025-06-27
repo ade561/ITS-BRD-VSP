@@ -53,7 +53,7 @@
 #define DEFAULT_XCORD 0
 #define DEFAULT_YCORD 0
 
-#define HEARTBEAT_INTERVAL (TICKS_PER_US * 5000) // Interval in milliseconds for heartbeat messages
+#define HEARTBEAT_INTERVAL (TICKS_PER_US * 2500) // Interval in milliseconds for heartbeat messages
 
 char* readLine();
 char* readMessage(char* message);
