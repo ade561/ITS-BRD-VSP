@@ -183,6 +183,7 @@ project:
       files:
         - file: ../../ITS_BRD_LIB/Inc/lcd.h
         - file: Inc/tcp_server.h
+        - file: Inc/Interrupt.h
 
     # lwIP/Source: Netzwerkstapel-Dateien von lwIP
     - group: lwIP/Source
@@ -228,6 +229,7 @@ project:
         - file: Src/output.c
         - file: Src/input.c
         - file: Src/message.c
+        - file: Src/interrupt.c
 
     # Benutzerdefinierte Programmdateien
     - group: Program/Net/Src

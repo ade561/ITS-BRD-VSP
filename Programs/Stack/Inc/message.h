@@ -49,6 +49,7 @@
 
 #define HEARTBEAT 13
 #define ACKNOWLEDGE 14
+#define DISCONNECT 15
 
 #define DEFAULT_XCORD 0
 #define DEFAULT_YCORD 0

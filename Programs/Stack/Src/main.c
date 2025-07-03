@@ -21,7 +21,7 @@
 
 #include "led.h"
 #include "lwip_interface.h"
-
+#include "interrupt.h"
 #include "tcp_server.h"
 #include "output.h"
 #include "input.h"
@@ -46,6 +46,7 @@ int main(void) {
     initITSboard();
     GUI_init(DEFAULT_BRIGHTNESS);
     TP_Init(false);
+ //   initISR();
     if (!checkVersionFlashFonts()) Error_Handler();
 
     lcdPrintlnS("UDP-Client");
@@ -62,15 +63,10 @@ int main(void) {
 int button = 0;
 	while(1){
     //Heartbeat
-        //lcdPrintlnS("oldTime: ");
-        //lcdPrintInt(oldTime);
-        
-        //lcdPrintlnS("currentTime: ");
-        //lcdPrintInt(currentTime);
         if((oldTime - currentTime) < HEARTBEAT_INTERVAL) {
           if(keepAliveCounter > 10){
             if(heartbeatStatus == 1) {
-            disconnectServer();
+            connectionLost();
             heartbeatStatus = 0;
             currentTime = oldTime;
           }

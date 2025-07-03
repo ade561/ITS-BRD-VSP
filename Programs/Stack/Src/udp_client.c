@@ -119,6 +119,7 @@ void selectServer(int serverNr) {
         return;
     }
 
+        //connectionLost();
         disconnectServer();
 
 		// 1. IP-Adresse korrekt zusammensetzen
@@ -180,7 +181,7 @@ void sendMsg(int number) {
 }
 
 
-void disconnectServer(void) {
+void connectionLost(void) {
     if (udp_client_pcb->remote_port != 0) {
     GUI_clear(WHITE);
     lcdGotoXY(DEFAULT_XCORD, DEFAULT_XCORD);
@@ -192,6 +193,19 @@ void disconnectServer(void) {
     lcdPrintlnS("Falls erneut verbunden werden soll, bitte ITS-BRD reset Taster betaetigen.");
     toggleGPIO(&led_pins[7]);
     keepAliveCounter = 0;
+    }
+}
+
+void disconnectServer(void) {
+    if (udp_client_pcb != NULL) {
+        oldTime = 0;
+        currentTime = 0;
+        heartbeatStatus = 0;
+        keepAliveCounter = 0;
+        sendMsg(DISCONNECT);
+        udp_disconnect(udp_client_pcb);
+        setLed(ALL_LEDS, GPIOX_D_LED, LED_OFF);
+        setLed(ALL_LEDS, GPIOX_E_LED, LED_OFF);
     }
 }
 

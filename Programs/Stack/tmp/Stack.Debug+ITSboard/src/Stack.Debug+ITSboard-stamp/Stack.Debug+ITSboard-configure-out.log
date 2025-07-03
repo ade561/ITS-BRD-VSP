@@ -6,6 +6,6 @@
 -- Check for working C compiler: c:/Users/dariu/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin//armclang.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (2.4s)
+-- Configuring done (2.8s)
 -- Generating done (0.0s)
 -- Build files have been written to: D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/1

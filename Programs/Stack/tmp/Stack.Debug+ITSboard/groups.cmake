@@ -235,6 +235,7 @@ add_library(Group_Program_User_Src OBJECT
   "${SOLUTION_ROOT}/Src/output.c"
   "${SOLUTION_ROOT}/Src/input.c"
   "${SOLUTION_ROOT}/Src/message.c"
+  "${SOLUTION_ROOT}/Src/interrupt.c"
 )
 target_include_directories(Group_Program_User_Src PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>

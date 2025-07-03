@@ -98,6 +98,7 @@ void processButtonInput(int button) {
                 toggleGPIO(&led_pins[6]);
                 break;
             case 7: {
+                disconnectServer();
                 GUI_clear(WHITE);
                 lcdGotoXY(DEFAULT_XCORD, DEFAULT_YCORD);
                 lcdPrintlnS("gebe einen Roboter an: ");

@@ -294,6 +294,8 @@ build:
           category: header
         - file: Inc/tcp_server.h
           category: header
+        - file: Inc/Interrupt.h
+          category: header
     - group: lwIP/Source
       files:
         - file: ../../lwip/src/netif/ethernet.c
@@ -367,6 +369,8 @@ build:
         - file: Src/input.c
           category: sourceC
         - file: Src/message.c
+          category: sourceC
+        - file: Src/interrupt.c
           category: sourceC
     - group: Program/Net/Src
       files:
