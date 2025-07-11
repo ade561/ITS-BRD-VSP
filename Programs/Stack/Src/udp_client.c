@@ -13,7 +13,7 @@
 #include "timer.h"
 #include "udp_client.h"
 #include "led.h"
-#define UDP_SERVER_IP   "192.168.178."  // IP-Adresse des Zielservers
+#define UDP_SERVER_IP   "172.16.1."  // IP-Adresse des Zielservers
 #define UDP_SERVER_PORT 8080            // Port des Zielservers
 #define UDP_LOCAL_PORT  5678            // Beliebiger freier lokaler Port
 
