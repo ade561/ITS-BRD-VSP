@@ -1,4 +1,5 @@
 #include "delay.h"
+#include "stm32f429xx.h"
 #define STM32F429xx
 #include <arm_compat.h>
  
@@ -19,16 +20,21 @@
 #include "udp_client.h"
 #include "timer.h"
 #include "message.h"
+#include "net/ethernetif.h"
+
  
 extern void initITSboard(void);
 extern void initLCDTouch(void);
  
-volatile uint64_t currentTime, oldTime;
+volatile uint32_t currentTime, oldTime;
+volatile uint32_t scheduleTime = 0;
 volatile uint8_t heartbeatStatus = 0;
 volatile uint8_t keepAliveCounter = 0;
  
 /* Definitionen */
 #define TASK_COUNT 4
+#define CONNECTIVITY_CHECK_INTERVAL 250
+#define MAX_MISSED_ACKS 10
  
 /* Struktur für eine Task */
 typedef struct {
@@ -46,11 +52,13 @@ void Scheduler(void);
  
 /* Globale Variablen */
 Task_t taskList[TASK_COUNT] = {
-    {HeartbeatTask, 0, 100, true},  // Heartbeat alle 1000 ms
+    {HeartbeatTask, 0, 100, true},  // Heartbeat alle 100 ms
     {ButtonTask, 0, 50, true},       // Button-Verarbeitung alle 50 ms
     {InputTask, 0, 10, true},        // Eingabe alle 10 ms
 };
  
+
+
 int main(void) {
     initITSboard();  // Initialisierung des ITS Boards
     GUI_init(DEFAULT_BRIGHTNESS);  // Initialisierung des LCD Boards mit Touch
@@ -66,26 +74,31 @@ int main(void) {
     netif_config();
     udp_client_init();
     // Test in Endlosschleife
+    oldTime = HAL_GetTick();
     while (1) {
         Scheduler();  // Aufruf des Schedulers in der Endlosschleife
     }
 }
  
 /* Heartbeat-Task */
+/* Heartbeat-Task */
 void HeartbeatTask(void) {
-    if (((oldTime - currentTime) < HEARTBEAT_INTERVAL)) {
-        if (keepAliveCounter > 10) {
-            if (heartbeatStatus == 1) {
-                connectionLost();
+    if (heartbeatStatus == 1) {
+    if ((oldTime - currentTime) > CONNECTIVITY_CHECK_INTERVAL) {
+        if (keepAliveCounter > MAX_MISSED_ACKS) {
+                disconnectServer();
                 heartbeatStatus = 0;
-                currentTime = oldTime;
+                GUI_clear(WHITE);
+                lcdGotoXY(DEFAULT_XCORD, DEFAULT_XCORD);
+                lcdPrintlnS("Verbindung getrennt zum Roboter.");
+                lcdPrintlnS("Falls erneut verbunden werden soll, bitte LAN Kabel anstecken & S7 Taster betaetigen.");
             }
-        } else {
-            keepAliveCounter++;
+        keepAliveCounter++;
         }
     }
 }
- 
+
+
 /* Button-Task - Entprellung der Tasten */
 void ButtonTask(void) {
     static int button = 0;
@@ -100,11 +113,12 @@ void InputTask(void) {
  
 /* Scheduler-Funktion */
 void Scheduler(void) {
-    currentTime = HAL_GetTick();  // Simulierte Zeit fortschreiben
+    scheduleTime = HAL_GetTick();  // Simulierte Zeit fortschreiben
+    currentTime = HAL_GetTick();
     for (uint8_t i = 0; i < TASK_COUNT; i++) {
-        if (taskList[i].isEnabled && currentTime >= taskList[i].nextExecutionTime) {
+        if (taskList[i].isEnabled && scheduleTime >= taskList[i].nextExecutionTime) {
             taskList[i].taskFunction();  // Task ausführen
-            taskList[i].nextExecutionTime = currentTime + taskList[i].offset; // Nächste Ausführungszeit
+            taskList[i].nextExecutionTime = scheduleTime + taskList[i].offset; // Nächste Ausführungszeit
         }
     }
 }

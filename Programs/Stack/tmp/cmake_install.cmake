@@ -1,4 +1,4 @@
-# Install script for directory: D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp
+# Install script for directory: D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

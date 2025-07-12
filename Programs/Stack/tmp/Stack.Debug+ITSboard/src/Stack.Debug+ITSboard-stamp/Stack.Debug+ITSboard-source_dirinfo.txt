@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=D:/VSProjekte/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard
+source_dir=D:/KeilProjects/ITS-BRD/ITS-BRD-VSP/Programs/Stack/tmp/Stack.Debug+ITSboard
 work_dir=
 
